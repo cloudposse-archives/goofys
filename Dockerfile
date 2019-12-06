@@ -10,6 +10,7 @@ RUN curl --fail -sSL -o /usr/local/bin/goofys https://github.com/kahing/goofys/r
 
 ENV MOUNT_DIR /mnt/s3
 ENV REGION us-east-1
+ENV ENDPOINT https://s3.amazonaws.com
 ENV BUCKET teleport-bucket
 ENV STAT_CACHE_TTL 1m0s
 ENV TYPE_CACHE_TTL 1m0s
