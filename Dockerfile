@@ -18,6 +18,7 @@ ENV DIR_MODE 0700
 ENV FILE_MODE 0600
 
 RUN mkdir /mnt/s3
+RUN mkdir ~/.aws/
 
 VOLUME /mnt/s3
 
