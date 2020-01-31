@@ -7,6 +7,7 @@ RUN apk update && apk add gcc ca-certificates openssl musl-dev git fuse syslog-n
 ENV GOOFYS_VERSION 0.23.1
 RUN curl --fail -sSL -o /usr/local/bin/goofys https://github.com/kahing/goofys/releases/download/v${GOOFYS_VERSION}/goofys \
     && chmod +x /usr/local/bin/goofys
+RUN curl -sSL -o /usr/local/bin/catfs https://github.com/kahing/catfs/releases/download/v0.8.0/catfs && chmod +x /usr/local/bin/catfs
 
 ARG ENDPOINT
 ENV MOUNT_DIR /mnt/s3
