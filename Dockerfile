@@ -4,18 +4,20 @@ MAINTAINER Cloud Posse, LLC
 
 RUN apk update && apk add gcc ca-certificates openssl musl-dev git fuse syslog-ng coreutils curl
 
-ENV GOOFYS_VERSION 0.19.0
+ENV GOOFYS_VERSION 0.23.1
 RUN curl --fail -sSL -o /usr/local/bin/goofys https://github.com/kahing/goofys/releases/download/v${GOOFYS_VERSION}/goofys \
     && chmod +x /usr/local/bin/goofys
 
+ARG ENDPOINT
 ENV MOUNT_DIR /mnt/s3
 ENV REGION us-east-1
-ENV ENDPOINT https://s3.amazonaws.com
 ENV BUCKET teleport-bucket
 ENV STAT_CACHE_TTL 1m0s
 ENV TYPE_CACHE_TTL 1m0s
 ENV DIR_MODE 0700
 ENV FILE_MODE 0600
+ENV UID 0
+ENV GID 0
 
 RUN mkdir /mnt/s3
 
